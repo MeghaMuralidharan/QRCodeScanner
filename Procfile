@@ -1,1 +1,1 @@
-web: gunicorn <your_project_folder>.wsgi
+web: gunicorn qr_scanner.wsgi
