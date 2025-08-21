@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Feedback</title>
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0"/>
+    <link rel="stylesheet" href="{% static 'registerstyle.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="form-title">feedback</h1>
+      <form method="POST"action="/feedback/">
+        {% csrf_token %}
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="inputMessage">Message</label>
+            <input type="text"
+                    id="fullName"
+                    name="essage"
+                    placeholder="Enter Message"/>
+          </div>
+       
+        <div class="form-submit-btn">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

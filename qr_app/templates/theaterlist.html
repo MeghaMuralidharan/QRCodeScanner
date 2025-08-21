@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <title>parlourlist</title>
+    </head>
+    <body><form >
+        <table border="1">
+            <tr>
+                <td>Film Name</td>
+                <td>Show Name</td>
+                <td>Show Time and End Time</td>
+                <td>Duration</td>
+                <td>Ticket Price</td>
+                <td>Review</td>
+                <td>Descripyion</td>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{i.filmname}}</td>
+                <td>{{i.show}}</td>
+                <td>{{i.showandendtime}}</td>
+                <td>{{i.duration}}</td>
+                <td>{{i.review}}</td>
+                <td>{{i.description}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate Shop</title>
+    <style>
+        /* CSS for the rating form */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .rating {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .rating > input {
+            display: none;
+        }
+
+        .rating > label {
+            display: inline-block;
+            padding: 5px;
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .rating > label:before {
+            content: '\2605';
+        }
+
+        .rating > input:checked ~ label,
+        .rating:not(:checked) > label:hover ~ label {
+            color: #FFD700;
+        }
+
+        .rating > input:checked ~ label:before,
+        .rating:not(:checked) > label:hover ~ label:before {
+            content: '\2605';
+        }
+
+        .rating > label:hover:before,
+        .rating > label:hover ~ label:before {
+            content: '\2605';
+            color: #FFD700;
+        }
+
+        input[type="submit"] {
+            background-color: #FF6347;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="rating">Rating:</label>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5"></label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4"></label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3"></label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2"></label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1"></label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

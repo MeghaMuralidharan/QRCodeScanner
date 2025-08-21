@@ -1,0 +1,110 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Listing</title>
+    <style>
+        /* Card layout styles */
+        .product-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card-details h2 {
+            margin-bottom: 5px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .card-details p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #f26522; /* Orange color for price */
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<center><h1>FASHION</h1></center>
+
+<div class="product-cards">
+    {% for product in product %}
+        <div class="card">
+            <img src="{{ product.image.url }}" alt="{{ product.product_name }}">
+            <div class="card-details">
+                <h2>{{ product.product_name }}</h2>
+                <p><strong>Brand:</strong> {{ product.brand_name }}</p>
+                <p><strong>Country:</strong> {{ product.country }}</p>
+                <p><strong>Quality:</strong> {{ product.quality }}</p>
+                <p><strong>Material:</strong> {{ product.material }}</p>
+                <p class="price">INR {{ product.price }}</p>
+                <button class="rzp-button" data-price="{{ product.price }}">Pay with Razorpay</button>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+  // Function to handle Razorpay payment for each product
+  function handlePayment(price) {
+    var options = {
+      key: 'rzp_test_3dkBc8BFxVDVtv', // Replace with your actual API key
+      amount: price * 100, // Convert price to paise
+      currency: 'INR',
+      name: 'Your Company Name',
+      description: 'Product or Service Description',
+      image: 'https://yourwebsite.com/logo.png', // URL of your company logo
+      handler: function(response) {
+        alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+        // You can handle the successful payment here
+      }
+    };
+
+    return options;
+  }
+
+  // Event listener for Razorpay payment buttons
+  var rzpButtons = document.querySelectorAll('.rzp-button');
+  rzpButtons.forEach(function(button) {
+    button.addEventListener('click', function(e) {
+      var price = this.getAttribute('data-price');
+      var rzp = new Razorpay(handlePayment(price));
+      rzp.open();
+      e.preventDefault();
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<html>
+    <head>
+        <title>parlour</title>
+    </head>
+    <body>
+       <form method="POST" action="/parlourdetails/">
+        {% csrf_token %}
+        <img src="" height="100"  wwidth="100">
+        <div class="user-input-box">
+            <label for="fullName">Product Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="pname"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Brand Name</label>
+            <input type="text"
+                    id="username"
+                    name="bname"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Country of Origin</label>
+            <input type="text"
+                    id="username"
+                    name="country"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Quality</label>
+            <input type="text"
+                    id="email"
+                    name="quality"/>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Material</label>
+            <input type="text"
+                    id="phoneNumber"
+                    name="material"/>
+          </div>
+          <div class="user-input-box">
+            <label for="password">Colour</label>
+            <input type="text"
+                    id="password"
+                    name="color"/>
+          </div>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Price</label>
+            <input type="text"
+                    id="email"
+                    name="price"/>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label for="email">Description</label>
+          <input type="text"
+                  id="email"
+                  name="description"/>
+        </div>
+      </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="Register">
+        </div>
+       </form> 
+    </body>
+</html>

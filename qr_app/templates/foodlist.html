@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+    <head>
+        <title>foodlist</title>
+    </head>
+    <body><form >
+        <table border="1">
+            <tr>
+                <td>Food Name</td>
+                <td>country of orgin</td>
+                <td>quantity</td>
+                <td>price</td>
+                <td>description</td>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{i.food_name}}</td>
+                <td>{{i.countryfood}}</td>
+                <td>{{i.quantityfood}}</td>
+                <td>{{i.pricefood}}</td>
+                <td>{{i.descriptionfood}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </form>
+
+    </body>
+</html>

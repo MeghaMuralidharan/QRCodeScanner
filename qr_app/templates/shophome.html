@@ -1,0 +1,241 @@
+{% load static %}
+<html>
+<head>
+    <title>Shophome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the layout */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        aside.sidebar {
+            background-color: #f5b248;
+            border-right: 1px solid #ccc;
+            width: 150px; /* Adjust sidebar width as needed */
+            height: 100vh; /* Adjust sidebar height as needed */
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto; /* Enable vertical scrolling if needed */
+        }
+
+        aside.sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        aside.sidebar a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+
+        main.main-content {
+            margin-left: 220px; /* Adjust margin to accommodate sidebar width */
+            padding: 20px;
+        }
+
+        /* Card layout styles */
+        .product-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card-details h2 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        h1{
+           
+            color: #333; /* Text color */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            font-family: 'Font Awesome 5 Free'; 
+        }
+
+        /* Add styling for other card details as needed */
+
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <a href="/clothesdetails/"><p>Add Products</p></a>
+        <a href="{% url 'logout' %}"><p>Logout</p></a>
+
+        <!-- Other sidebar links or content can be added here -->
+    </aside>
+    <main class="main-content">
+        <center><h1>WELCOME TO SUPERMARKET PRODUCT ADDING SECTION</h1></center>
+
+        <div class="product-cards">
+            {% for item in products %}
+                <div class="card">
+                    <img src="{{ item.image.url }}" alt="{{ item.product_name }} Image"> <!-- Display product image -->
+                    <div class="card-details">
+                        <h2>{{ item.product_name }}</h2> <!-- Display product name -->
+                        <p><strong>Brand:</strong> {{ item.brand_name }}</p> <!-- Display other product fields -->
+                        <p><strong>Country:</strong> {{ item.country }}</p>
+                        <p><strong>quality:</strong> {{ item.quality }}</p>
+                        <p><strong>material:</strong> {{ item.material }}</p>
+                        <p><strong>color:</strong> {{ item.color }}</p>
+                        <p><strong>Price:</strong> ${{ item.price }}</p>
+                        <p>{{ item.description }}</p>
+                        <form action="{% url 'delete_product' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        <!-- Add more details or fields -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
+{% comment %} {% load static %}
+<html>
+<head>
+    <title>Shophome</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the layout */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        aside.sidebar {
+            background-color: #f2f2f2;
+            border-right: 1px solid #ccc;
+            width: 200px; /* Adjust sidebar width as needed */
+            height: 100vh; /* Adjust sidebar height as needed */
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto; /* Enable vertical scrolling if needed */
+        }
+
+        aside.sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        aside.sidebar a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+
+        main.main-content {
+            margin-left: 220px; /* Adjust margin to accommodate sidebar width */
+            padding: 20px;
+        }
+
+        /* Card layout styles */
+        .product-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card-details h2 {
+            margin-bottom: 5px;
+        }
+
+        /* Add styling for other card details as needed */
+
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <a href="/clothesdetails/"><p>Add Products</p></a>
+        <a href="{% url 'logout' %}"><p>Logout</p></a>
+
+        <!-- Other sidebar links or content can be added here -->
+    </aside>
+    <main class="main-content">
+        <center><h1>WELCOME TO SUPERMARKET PRODUCT ADDING SECTION</h1></center>
+
+        <div class="product-cards">
+            {% for item in products %}
+                <div class="card">
+                    <img src="{{ item.image.url }}" alt="{{ item.product_name }} Image"> <!-- Display product image -->
+                    <div class="card-details">
+                        <h2>{{ item.product_name }}</h2> <!-- Display product name -->
+                        <p><strong>Brand:</strong> {{ item.brand_name }}</p> <!-- Display other product fields -->
+                        <p><strong>Country:</strong> {{ item.country }}</p>
+                        <p><strong>quality:</strong> {{ item.quality }}</p>
+                        <p><strong>material:</strong> {{ item.material }}</p>
+                        <p><strong>color:</strong> {{ item.color }}</p>
+                        <p><strong>Price:</strong> ${{ item.price }}</p>
+                        <p>{{ item.description }}</p>
+                        <form action="{% url 'delete_product' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+                        <!-- Add more details or fields -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html> {% endcomment %}

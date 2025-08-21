@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop Detail</title>
+    <style>
+        /* CSS for shop detail page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .shop-details {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF6347;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="shop-details">
+        <h2>{{ shop.shop_name }}</h2>
+        <p>Floor: {{ shop.floor }}</p>
+        <!-- Display other shop details -->
+
+        <h3>Ratings:</h3>
+        <ul>
+            {% for rating in ratings %}
+                <li>{{ rating.rating }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'rate_shop' shop_id=shop.id %}">Rate this shop</a>
+    </div>
+</body>
+</html>

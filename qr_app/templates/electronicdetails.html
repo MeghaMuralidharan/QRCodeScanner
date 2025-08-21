@@ -1,0 +1,60 @@
+{% load static %}
+<html>
+    <head>
+        <title>electronicdetials</title>
+    </head>
+    <body>
+       <form method="POST" action="/electronicdetails/">
+        {% csrf_token %}
+        <img src="" height="100"  wwidth="100">
+        <div class="user-input-box">
+            <label for="fullName">Product Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="pname"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Brand Name</label>
+            <input type="text"
+                    id="username"
+                    name="name"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Country of Origin</label>
+            <input type="text"
+                    id="username"
+                    name="count"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Quality</label>
+            <input type="text"
+                    id="email"
+                    name="quali"/>
+          </div>
+          <div class="user-input-box">
+            <label for="password">Colour</label>
+            <input type="text"
+                    id="password"
+                    name="colour"/>
+          </div>
+          </div>
+           <div class="user-input-box">
+            <label for="email">Price</label>
+            <input type="text"
+                    id="email"
+                    name="pric"/>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label for="email">Description</label>
+          <input type="text"
+                  id="email"
+                  name="descrip"/>
+        </div>
+      </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="Register">
+        </div>
+       </form> 
+    </body>
+</html>

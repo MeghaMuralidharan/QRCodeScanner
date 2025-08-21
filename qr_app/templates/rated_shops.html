@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Rated Shops</h2>
+<ul>
+    {% for shop in rated_shops %}
+    <li><a href="{% url 'shop_detail' shop_id=shop.id %}">{{ shop.shop_name }}</a></li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

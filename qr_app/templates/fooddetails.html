@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+    <head>
+        <title>fooddetials</title>
+    </head>
+    <body>
+       <form method="POST" action="/fooddetails/">
+        {% csrf_token %}
+        <!-- <img src="" height="100"  wwidth="100"> -->
+        <div class="user-input-box">
+            <label for="fullName">Food Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="fname"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Country of Origin</label>
+            <input type="text"
+                    id="username"
+                    name="ctry"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Quantity</label>
+            <input type="text"
+                    id="email"
+                    name="qty"/>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Price</label>
+            <input type="text"
+                    id="phoneNumber"
+                    name="price"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Description</label>
+            <input type="text"
+                    id="email"
+                    name="desc"/>
+          </div>
+        </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="Register">
+        </div>
+       </form> 
+    </body>
+</html>

@@ -1,0 +1,39 @@
+{% load static %}
+<html>
+    <head>
+        <title>funzone</title>
+    </head>
+    <body>
+       <form method="POST" action="/funzonedetails/">
+        {% csrf_token %}
+        <img src="" height="100"  wwidth="100">
+        <div class="user-input-box">
+            <label for="fullName">Game Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="gname"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Duration</label>
+            <input type="text"
+                    id="username"
+                    name="duration"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Price</label>
+            <input type="text"
+                    name="price"/>
+          </div>
+        </div>
+        <div class="user-input-box">
+          <label for="email">Description</label>
+          <input type="text"
+                  name="description"/>
+        </div>
+      </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="Register">
+        </div>
+       </form> 
+    </body>
+</html>

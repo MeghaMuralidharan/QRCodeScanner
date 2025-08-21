@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+    <head>
+        <title>parlourlist</title>
+    </head>
+    <body><form >
+        <table border="1">
+            <tr>
+                <td>Game Name</td>
+                <td>Duration</td>
+                <td>price</td>
+                <td>description</td>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{i.gamename}}</td>
+                <td>{{i.duration}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.description}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </form>
+
+    </body>
+</html>

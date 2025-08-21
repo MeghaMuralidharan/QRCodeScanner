@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop List</title>
+    <style>
+        /* CSS for shop cards */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .shop-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .shop-card {
+            background: linear-gradient(to bottom right, #FFD700, #FF6347);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease-in-out;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            width: calc(33.33% - 20px);
+            /* Adjust the width as needed */
+        }
+
+        .shop-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .shop-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Additional styling can be added for other elements as needed */
+    </style>
+</head>
+<body>
+    <h1>List of Shops</h1>
+    <div class="shop-list">
+        {% for shop in shops %}
+            <a href="{% url 'shop_detail' shop_id=shop.id %}" class="shop-card">
+                <div class="shop-details">
+                    <span class="shop-name">{{ shop.shop_name }}</span>
+                    <!-- Add other shop details here if needed -->
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</body>
+</html>

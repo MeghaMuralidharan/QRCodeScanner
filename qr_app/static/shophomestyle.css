@@ -1,0 +1,23 @@
+body
+{
+background-color: aqua;
+background-image: url();
+}
+section.leftcontainer
+{
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+section.rightcontainer
+{
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+user-input-box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}

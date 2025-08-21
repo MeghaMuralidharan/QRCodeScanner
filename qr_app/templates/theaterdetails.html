@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+    <head>
+        <title>theater</title>
+    </head>
+    <body>
+       <form method="POST" action="/theaterdetails/">
+        {% csrf_token %}
+        <img src="" height="100"  wwidth="100">
+        <div class="user-input-box">
+            <label for="fullName">Film Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="filname"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Which Show</label>
+            <input type="text"
+                    id="username"
+                    name="wshow"/>
+          </div>
+          <div class="user-input-box">
+            <label for="username">Show Time and End Time</label>
+            <input type="text"
+                    id="username"
+                    name="time"/>
+          </div>
+          <div class="user-input-box">
+            <label for="email">Duration</label>
+            <input type="text"
+                    id="email"
+                    name="duration"/>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Ticket Price</label>
+            <input type="text"
+                    id="phoneNumber"
+                    name="ticket"/>
+          </div>
+          <div class="user-input-box">
+            <label for="password">Review</label>
+            <input type="text"
+                    id="password"
+                    name="review"/>
+          </div>
+          </div>
+        <div class="user-input-box">
+          <label for="email">Description</label>
+          <input type="text"
+                  id="email"
+                  name="description"/>
+        </div>
+      </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="Register">
+        </div>
+       </form> 
+    </body>
+</html>

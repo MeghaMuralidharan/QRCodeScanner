@@ -1,0 +1,124 @@
+{% load static %}
+<html>
+<head>
+    <title>Clothes Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .clothes-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Supermarket  Details</h1>
+            <form action="/clothesdetails/" class="form-group" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    <!-- Other form fields -->
+            <div class="form-group">
+    <input type="file" name="image">
+</div>
+            <div class="form-group">
+                <label for="pname">Product Name</label>
+                <input type="text" id="pname" name="pname" placeholder="Product Name">
+            </div>
+            <div class="form-group">
+                <label for="bname">Brand Name</label>
+                <input type="text" id="bname" name="bname" placeholder="Brand Name">
+            </div>
+             <div class="form-group">
+                <label for="country">country</label>
+                <input type="text" id="country" name="country" placeholder="country">
+            </div>
+             <div class="form-group">
+                <label for="quality">quality</label>
+                <input type="text" id="quality" name="quality" placeholder="quality">
+            </div>
+            <div class="form-group">
+                <label for="color">color</label>
+                <input type="text" id="color" name="color" placeholder="color">
+            </div>
+
+            <div class="form-group">
+                <label for="price">price</label>
+                <input type="text" id="price" name="price" placeholder="price">
+            </div>
+<!--                <div class="form-group">-->
+<!--                <label for="floor">floor</label>-->
+<!--                <input type="text" id="floor" name="floor" placeholder="floor">-->
+<!--            </div>-->
+            <div class="form-group">
+                <label for="material">material</label>
+                <textarea id="material" name="material" placeholder="material"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="description"></textarea>
+            </div>
+            <div class="form-group">
+                <select name="selected_item">
+            {% for item in type %}
+                <option value="{{ item.id }}">{{ item.name }}</option>  <!-- Replace field_name with the field you want to display -->
+            {% endfor %}
+        </select>
+            </div>
+            <div class="form-submit-btn">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
